@@ -1,9 +1,9 @@
 #!/bin/sh
 
 # Directories
-MAINDIR=/nexsan2/disk3/ajaffe/RNASeq/BRAIN
+MAINDIR=/dcs01/lieber/ajaffe/Brain/derRuns/libd_n36
 WDIR=${MAINDIR}/libd_n36/derCoverageInfo
-DATADIR=${MAINDIR}/n36
+DATADIR=/nexsan2/disk3/ajaffe/RNASeq/BRAIN/n36
 
 # Define variables
 SHORT='derCovInf-n36'

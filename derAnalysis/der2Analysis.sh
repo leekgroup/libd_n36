@@ -1,7 +1,7 @@
 #!/bin/sh
 
 ## Usage
-# sh der2Analysis.sh run1-v0.0.46
+# sh der2Analysis.sh run2-v0.0.42
 
 # Directories
 MAINDIR=/dcs01/lieber/ajaffe/Brain/derRuns/libd_n36

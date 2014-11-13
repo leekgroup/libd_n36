@@ -15,3 +15,5 @@ colnames(values(fullRegions))[i] <- paste("log2FoldChange", levels(groupInfo)[2:
 colnames(values(fullRegions))
 
 save(fullRegions, file="fullRegions.Rdata")
+
+## Note: this might no longer be needed with the BioC version of derfinder, but we'll leave it here just in case.

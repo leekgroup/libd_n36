@@ -1,6 +1,7 @@
 ## Merge the coverage data
+## Note that you would now use the fullCoverage() function which did not exist when this script was made.
 
-library(IRanges)
+library('IRanges')
 
 ## setup
 chrs <- c(1:22, "X", "Y")
@@ -14,4 +15,4 @@ for(chr in chrs) {
 	fullCov[[chr]] <- data$coverage
 }
 
-save(fullCov, file="fullCov.Rdata")
+save(fullCov, file="../derCoverageInfo/fullCov.Rdata")

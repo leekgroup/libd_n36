@@ -3,7 +3,7 @@
 ## Load libraries
 library("getopt")
 
-## Available at https://github.com/lcolladotor/derfinder
+## Available at http://www.bioconductor.org/packages/release/bioc/html/derfinder.html
 library("derfinder")
 
 ## Specify parameters
@@ -64,16 +64,10 @@ load("models.Rdata")
 ## Load group information
 load("groupInfo.Rdata")
 
-## Load colsubsets used
-# load("colsubset.Rdata")
-
 ## Run the analysis
-# analyzeChr(chr=opt$chr, coverageInfo=data, models=models, colsubset=colsubset, cutoffFstat=1e-04, cutoffType="theoretical", nPermute=100, seeds=seq_len(100) * 20140408, maxClusterGap=3000, groupInfo=groupInfo, subject="hg19", mc.cores=opt$mcores, lowMemDir=paste0("chr", opt$chr, "/chunksDir"), verbose=opt$verbose)
 
 ## n36 analysis
-# analyzeChr(chr=opt$chr, coverageInfo=data, models=models, cutoffFstat=1e-08, cutoffType="theoretical", nPermute=1000, seeds=seq_len(1000), maxClusterGap=3000, groupInfo=groupInfo, subject="hg19", mc.cores=opt$mcores, lowMemDir=paste0("chr", opt$chr, "/chunksDir"), verbose=opt$verbose)
-## without lowMemDir
-analyzeChr(chr=opt$chr, coverageInfo=data, models=models, cutoffFstat=1e-08, cutoffType="theoretical", nPermute=1000, seeds=seq_len(1000), maxClusterGap=3000, groupInfo=groupInfo, subject="hg19", mc.cores=opt$mcores, verbose=opt$verbose)
+analyzeChr(chr=opt$chr, coverageInfo=data, models=models, cutoffFstat=1e-08, cutoffType="theoretical", nPermute=1000, seeds=seq_len(1000), maxClusterGap=3000, groupInfo=groupInfo, subject="hg19", mc.cores=opt$mcores, lowMemDir=file.path(tempdir(), paste0("chr", opt$chr), "chunksDir"), verbose=opt$verbose)
 
 ## Done
 if(opt$verbose) {

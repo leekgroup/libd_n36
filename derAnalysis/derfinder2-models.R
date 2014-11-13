@@ -1,39 +1,7 @@
 ## Calculate the library adjustments and build the models
 
-library("getopt")
-
-## Available at https://github.com/lcolladotor/derfinder
+## Available at http://www.bioconductor.org/packages/release/bioc/html/derfinder.html
 library("derfinder")
-
-## Specify parameters
-spec <- matrix(c(
-	'reference', 'r', 1, "character", "group 1 to use in the comparison",
-	'comparison', 'c', 1, "character", "group 2 to use in the comparison",
-	'help' , 'h', 0, "logical", "Display help"
-), byrow=TRUE, ncol=5)
-opt <- getopt(spec)
-
-## Testing the script
-test <- FALSE
-if(test) {
-	## Speficy it using an interactive R session and testing
-	test <- TRUE
-}
-
-## Test values
-if(test){
-	opt <- NULL
-	opt$group1 <- "(-1,0]"
-	opt$group2 <- "(0,1]"
-}
-
-## if help was asked for print a friendly message
-## and exit with a non-zero error code
-if (!is.null(opt$help)) {
-	cat(getopt(spec, usage=TRUE))
-	q(status=1)
-}
-
 
 ## Load the coverage information
 load("../../derCoverageInfo/filteredCov.Rdata")
@@ -51,20 +19,8 @@ info <- info[complete.cases(info),]
 info$dir <- paste0("R", info$RNANum)
 match <- sapply(dirs, function(x) { which(info$dir == x)})
 info <- info[match, ]
-## Set the first group as the reference
-twogroups <- c(opt$reference, opt$comparison)
-cases <- c("(-1,0]", "(0,1]", "(1,10]", "(10,20]", "(20,50]", "(50,100]")
-names(cases) <- c("fetal", "infant", "child", "teen", "adult", "elderly")
-levels <- cases[match(twogroups, names(cases))]
-
-group <- factor(info$ageGroup, levels=levels)
-
-## Define colsubset
-colsubset <- which(!is.na(group))
-save(colsubset, file="colsubset.Rdata")
-
-## Update the group labels
-group <- group[!is.na(group)]
+## Set the control group as the reference
+group <- relevel(info$ageGroup, "(0,1]")
 
 ## Determine sample size adjustments
 if(file.exists("sampleDepths.Rdata")) {
@@ -77,7 +33,7 @@ if(file.exists("sampleDepths.Rdata")) {
 		load("../../derCoverageInfo/fullCov.Rdata")
 
 		## Collapse
-		collapsedFull <- collapseFullCoverage(fullCov, colsubset=colsubset, save=TRUE)
+		collapsedFull <- collapseFullCoverage(fullCov, save=TRUE)
 	}
 
 	## Get the adjustments

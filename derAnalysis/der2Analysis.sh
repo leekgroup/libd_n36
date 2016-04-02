@@ -4,7 +4,7 @@
 # sh der2Analysis.sh run2-v0.0.42
 
 # Directories
-MAINDIR=/dcs01/lieber/ajaffe/Brain/derRuns/libd_n36
+MAINDIR=/dcl01/lieber/ajaffe/derRuns/libd_n36
 WDIR=${MAINDIR}/derAnalysis
 DATADIR=${MAINDIR}/derCoverageInfo
 

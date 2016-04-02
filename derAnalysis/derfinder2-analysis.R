@@ -26,7 +26,7 @@ if(test) {
 ## Test values
 if(test){
 	opt <- NULL
-	opt$DFfile <- "/dcs01/lieber/ajaffe/Brain/derRuns/libd_n36/derCoverageInfo/chr21CovInfo.Rdata"
+	opt$DFfile <- "/dcl01/lieber/ajaffe/derRuns/libd_n36/derCoverageInfo/chr21CovInfo.Rdata"
 	opt$chr <- "21"
 	opt$mcores <- 1
 	opt$verbose <- NULL

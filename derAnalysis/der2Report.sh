@@ -6,7 +6,7 @@
 ## regionReport available at http://www.bioconductor.org/packages/release/bioc/html/regionReport.html
 
 # Directories
-MAINDIR=/dcs01/lieber/ajaffe/Brain/derRuns/libd_n36
+MAINDIR=/dcl01/lieber/ajaffe/derRuns/libd_n36
 WDIR=${MAINDIR}/derAnalysis
 
 # Define variables

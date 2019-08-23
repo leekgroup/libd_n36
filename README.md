@@ -1,4 +1,5 @@
 # LIBD n36 project
+[![DOI](https://zenodo.org/badge/26566393.svg)](https://zenodo.org/badge/latestdoi/26566393)
 
 This repository is for hosting the code for the LIDB n36 project lead by AE Jaffe.
 
